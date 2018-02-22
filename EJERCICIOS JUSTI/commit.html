@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>#encabezado1{font-size: 17pt}</style>
+</head>
+<body>
+  <div id="cabecera">
+    <h1 id="encabezado1">Lorem ipsum dolor</h1>
+    <button id="masGrande">Mas grande el párrafo</button>
+    <p class="parrafo" id="parrafo1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam placeat fuga amet, nobis dolor repellendus obcaecati neque ab architecto in, quia explicabo debitis, corporis, cumque reprehenderit sequi quisquam corrupti consectetur!</p>
+    <p class="parrafo" id="parrafo2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique enim iure, tempore, distinctio quaerat dolorem corrupti sunt? Aspernatur accusamus hic, ullam cupiditate, aliquam fugiat nisi voluptate, praesentium, rem quasi consequuntur!</p>
+  </div>
+  <p>
+    parrafo3
+  </p>
+  <h2>Lista no numerada</h2> <button id="crearNodo">Crear hijito</button>
+  <button id="matarNodo">Mata!!!!</button>
+  <ul id="lista">
+
+  </ul>
+  <script>
+    //document.getElementById("encabezado1").innerHTML="Placerum"
+    function cambiar(){
+      var elementos = document.querySelectorAll("#cabecera p");
+      for (i in elementos){
+        elementos[i].style.color="red";
+      }
+    }
+    function cambiarUno(elemento){
+      elemento.style.color="red";
+    }
+    function desCambiarUno(elemento){
+      elemento.style.color="black";
+    }
+    function agrandar(elemento){
+      elemento.style.fontSize="40pt";
+    }
+    function crearElementos()
+    {
+      var nuevoElemento = document.createElement("li");
+      nuevoElemento.innerHTML="soy nuevo";
+      var padre = document.querySelector("#lista");
+      padre.appendChild(nuevoElemento);
+    }
+    function matarElementos(){
+      var padre = document.querySelector("#lista");
+      padre.removeChild(padre.childNodes[0]);
+    }
+
+    var elemento = document.querySelector("#parrafo1");
+    var elemento2 = document.querySelector("#parrafo2");
+    elemento.addEventListener("mouseover",function(){cambiarUno(elemento2)});
+    elemento.addEventListener("mouseout", function(){desCambiarUno(elemento2)});
+    document.querySelector("#masGrande").
+              addEventListener("click",function(){agrandar(
+                document.querySelector("#encabezado1")
+              )});
+    document.querySelector("#crearNodo")
+              .addEventListener("click",crearElementos);
+    document.querySelector("#matarNodo")
+              .addEventListener("click",matarElementos);
+
+      var lista=document.querySelectorAll("#cabecera p");
+    for(i in lista){
+      lista[i].addEventListener("mouseover",cambiar);
+    }
+    elemento1=document.querySelector("#parrafo1");
+    elemento1.addEventListener("mouseover",function(){cambiarUno(this)})
+    elemento1.addEventListener("mouseout",function(){desCambiarUno(this)})
+
+  </script>
+</body>
+</html>
