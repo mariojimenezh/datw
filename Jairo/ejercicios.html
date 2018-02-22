@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ejercicios 19/02/2018</title>
+</head>
+<body>
+<h1> Ejercicios </h1>
+
+<section>
+  <img src="imagen3.png" width="100px" id="imagen"></img>
+  <div id="parrafo">
+  <p>Esto es un texto de prueba para agrandar con una funcion en Jquery </p>
+</div>
+</section>
+
+<section>
+<h1 id="encabezado1"> Este es el ejercicio 4 </h1>
+
+</section>
+
+<br>
+<br>
+<section>
+  <form id="formulario" action="" method="GET">
+Nombre: <input type="text" name="nombre" value="Introduce tu nombre" id="nombre">
+<h1 id="oculto"></h1>
+  </form>
+</section>
+
+
+<section>
+
+<ul id="lista">
+
+</ul>
+<button id="boton">Añadir</button>
+ </section>
+
+ <section>
+   <form id="formulario" action="" method="GET">
+
+Apellidos: <input type="text" name="apellido" value="" id="apellido">
+<button id="bapell" type="button"> Añadir </button>
+</form>
+<p id="tapell">Tus apellidos:  </p>
+ </section>
+<hr>
+<section>
+<form method="" action="" id="form1">
+Nombre: <input type="text" name="nombre" id="nombre1"><br>
+Apellido: <input type="text" name="apell" id="apellido1"><br>
+Calle: <input type="text" name="calle" id="calle1"><br>
+Provincia: <input type="text" name="provincia" id="provincia1"><br>
+
+
+</form>
+</section>
+<hr>
+
+<section>
+<h1 id="encabezado">Pienso luego existo </h1>
+
+ </section>
+
+<hr>
+
+<section>
+<textarea id="texto" name="name" rows="8" cols="80">
+  Lorem Ipsum is simply dummy text of the printing
+   and typesetting industry.Lorem Ipsum has been the
+   industry's standard dummy text ever since the 1500s,
+    when an unknown printer took a galley of type and
+    scrambled it to make a type specimen book. It has
+    survived not
+
+
+</textarea>
+
+</section>
+
+<hr>
+<section id="Ejercicio11">
+<form action=""  name="ejercicio10" id="ejercicio10"> <br>
+  Usuario: <input type="text" id="usuario"><br>
+  Contraseña: <input type="text" name="" value="" id="contrasena"><br>
+  Direccion: <input type="text" name="" value="" id="direccion2"><br>
+  C.P: <input type="text" name="" value="" id="codigo"><br>
+  Telefono: <input type="text" name="" value="" id="telefono"><br>
+
+<input type="submit" value="Enviar"> <button type="button" name="button" id="reset">Reset</button>
+
+</form>
+
+
+</section>
+
+<br>
+<br>
+
+<button type="button" id="parar">Parar</button>
+<div id="efecto">
+Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en
+demostraciones de tipografías o de borradores de diseño para probar el diseño
+visual antes de insertar el texto final. Aunque no posee actualmente fuentes
+para justificar sus hipótesis, el profesor de filología clásica Richard McClintock
+<br>
+</div>
+<button type="button" id="hacer">Hacer</button> <button type="button" id="deshacer">Deshacer</button>
+<button type="button" id="ncnl">Ni chicha ni limona </button>
+<button type="button" id="conmutador">Conmutador </button>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+
+<script>
+//Ejercicio 1.
+/*$("document").ready(function(){
+  alert("Página cargada");
+});*/
+
+//Ejercicio. 2
+$("#imagen").on("mousewheel DOMMouseScroll", function(){
+  this.style.width ="200px";
+});
+$("#imagen").on("dblclick", function(evento){
+  this.style.width ="100px";
+  evento.preventDefault();
+});
+
+//Ejercicio 3
+$("#parrafo").on("click", function(evento){
+  this.style.fontSize ="20pt";
+});
+
+//Ejercicio 4
+$("#encabezado1").hover(function(){
+  this.style.fontSize="30pt";
+  this.style.color="red";
+
+}, function(){
+  this.style.fontSize="12pt"; //poner con this
+  this.style.color="black";
+});
+
+//Ejercicio 5
+
+//$("#nombre").on("change",function(){
+  //alert("el campo ha cambiado");
+//});
+
+//Ejercicio 5
+//$("#nombre").on("keypress", function(){
+//  alert("tecla pulsada");
+//});
+//Ejercicio propuesto por Mario
+$("#nombre").on("keyup", function(event){
+  if($(this).val()=="alohomora"){ // this == #nombre
+    $("#oculto").html("Palabra correcta");
+  }else{
+    $("oculto").html();
+  }
+});
+
+
+
+//Ejercicio 6
+$("#boton").click(function(){
+  $("ul").append("<li>numero: "+(Math.random()*100).toFixed()+"</li>"); //funcion math, toFixed: sin decimales
+});
+$("ul").dblclick(function(){
+  $("li").remove("li:last");
+});
+
+//Ejercicio 7
+
+$("#bapell").click(function(){
+  var texto = $("#apellido").val();
+  $("#tapell").empty();
+  $("#tapell").append(texto);
+});
+
+//Ejercicio 8
+$("#form1").children().focus(function(){
+  $(this).css("background-color", "yellow");
+});
+$("#form1").children().blur(function(){
+  $(this).css("background-color", "#FFFFFF");
+});
+
+//Ejercicio 9
+
+$("#encabezado").hover(function(){
+alert("El id es: " +$(this).attr("id")+" y el texto del encabezado: "+$("#encabezado").text());
+});
+
+//Ejercicio 10
+$("#texto").select(function(){
+  alert("No se puede copiar texto");
+});
+
+//Ejercicio 11
+$("#contrasena").on("paste", function(event){
+  alert("No puede pegar nada aqui");
+  event.preventDefault();
+  $(this).val("");
+});
+
+//Ejercicio 13
+var minuscula = $("#usuario").val().toLowerCase();
+
+$("#Ejercicio10").submit(function(){
+
+});
+
+/*$(function(){
+  $("form[name='ejercicio10']").validate({
+    rules:{
+      usuario:{
+        required: true,
+     },
+     messages:{
+       usuario: "Entra tu usuario correctamente"
+     },
+    },
+   submitHandler: function(form){
+      form.submit();
+    }
+  });
+});*/
+
+
+//Efectos jquery
+$("#hacer").click(function(){
+  $("#efecto").slideUp(4000); //ocultar elemento
+});
+$("#deshacer").click(function(){
+  $("#efecto").slideDown(4000); //mostrar elemento
+});
+$("#ncnl").click(function(){
+  $("#efecto").fadeTo(4000,0.5);
+});
+$("#conmutador").click(function(){
+  for(var i=0; i<10; i++)
+  $("#efecto").stop();
+ $("#efecto").slideToggle(1000);
+});
+$("#parar").click(function(){
+  $("#efecto").stop();
+});
+ </script>
+</html>
