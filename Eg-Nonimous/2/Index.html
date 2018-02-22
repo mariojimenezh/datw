@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM storage</title>
+</head>
+<body>
+  <script>
+    var nombre=localStorage.getItem("nombre")
+    //var
+
+    if(nombre===null){
+      alert('Bienvenido por primera vez');
+      nombre=prompt("Cómo te llamas?");
+      localStorage.setItem("nombre",nombre);
+    }
+    else{
+      alert('Bienvenido de nuevo '+nombre);
+    }
+  </script>
+</body>
+</html>
