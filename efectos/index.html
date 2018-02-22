@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>EJERCICIOS JAVASCRIPT :: JQUERY</title>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"></link>
+
+    <style style="text/css">
+    body{
+        font-family: Arial, Helvetica;
+        padding: 0px 30px 30px 30px;
+        font-size: 13px;
+        margin:0px;
+        color:#6B8560;
+    }
+    header{
+        font-family: Arial, Helvetica;
+        font-size: 20px;
+        font-weight: bolder;
+        color: #FFF;
+        background-color: #6B8560;
+        padding: 10px;
+        background-image: url(img/bgpattern_title.gif);
+        background-repeat: repeat-x;
+        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        margin-top: 0px;
+    }
+    hr{
+        margin: 10px 0px 0px 0px;
+        padding: 0px;
+        width: 615px;
+        border: 3px solid #6B8560;
+    }
+    #titulo{
+        font-family: Arial;
+        font-weight: bolder;
+        color: #777;
+        margin:0px;
+        font-size: 10px;
+    }
+    a{
+        font-family: Arial, Helvetica;
+        color: #333;
+        font-size: 12px;
+        font-style: normal;
+        text-decoration: none;
+    }
+    a:hover{
+        font-family: Arial, Helvetica;
+        color: #333;
+        font-size: 12px;
+        text-decoration: underline solid #333;
+    }
+    button{
+        background-color: #CEFFB8;
+        border: 0px;
+        border-bottom-right-radius: 6px;
+        border-bottom-left-radius: 4px;
+        margin-top: 0px;
+    }
+    button:hover{
+        background-color: #6B8560;
+        border: 0px;
+        border-bottom-right-radius: 6px;
+        border-bottom-left-radius: 4px;
+        margin-top: 0px;
+    }
+    .mydiv{
+        padding: 10px;
+        text-align: justify;
+        width: 600px;
+        background-color: #CEFFB8;
+        border-bottom-right-radius: 10px;
+    }
+    .mydiv2{
+        padding: 10px;
+        text-align: justify;
+        width: 600px;
+        background-color:#CEFFB8;
+        border-bottom-right-radius: 10px;
+    }
+    .mydiv3{
+        padding: 10px;
+        text-align: justify;
+        width: 600px;
+        background-color: #CEFFB8;
+        border-bottom-right-radius: 10px;
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+    }
+    .formbutton{
+        background-color: #CEFFB8;
+        border: 0px;
+        border-bottom-right-radius: 6px;
+        border-bottom-left-radius: 6px;
+        margin-top: 0px;
+    }
+    .formbutton:hover{
+        background-color: #6B8560;
+        border: 0px;
+        border-bottom-right-radius: 6px;
+        border-bottom-left-radius: 6px;
+        margin-top: 0px;
+    }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+    <header>MI SUPER APLICACI&Oacute;N CHACHI v2.0</header>
+    <!-- Panel con texto -->
+    <div class="draggable">
+        <hr />
+        <div id="mydiv" class="mydiv">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lectus urna, consequat sodales odio at, congue tincidunt ipsum. Aliquam nec imperdiet purus. Aenean efficitur dignissim fermentum. Fusce eu lorem pulvinar, euismod nisl vitae, suscipit mi. Quisque sed aliquet turpis, id ornare orci. Sed ac molestie quam. Ut nisl nunc, malesuada eget venenatis at, accumsan vel nulla. Quisque suscipit, tortor vel egestas scelerisque, libero nibh iaculis massa, at hendrerit metus risus dapibus diam. Aenean hendrerit mollis lorem, non rutrum ipsum blandit in. Donec id viverra mauris.
+        </div>
+        <button id = "hide"><img src="img/up.gif" /></button>
+        <button id = "show"><img src="img/down.gif" /></button>
+        <span id="titulo">TEXTO</span>
+    </div>
+    <!-- Panel con lista -->
+    <div class="draggable">
+        <hr />
+        <div id="mydiv2" class = "mydiv2">
+            <ul>
+                <li><a href="#" >Garbanzos</a></li>
+                <li><a href="#" >Bacalao</a></li>
+                <li><a href="#" >Vinagreras</a></li>
+                <li><a href="#" >Cabeza de ajo</a></li>
+                <li><a href="#" >Cebolla</a></li>
+                <li><a href="#" >Garbanzos</a></li>
+                <li><a href="#" >Bacalao</a></li>
+                <li><a href="#" >Vinagreras</a></li>
+                <li><a href="#" >Cabeza de ajo</a></li>
+                <li><a href="#" >Cebolla</a></li>
+            </ul>
+        </div>
+        <button id = "hide2"><img src="img/up.gif" /></button>
+        <button id = "show2"><img src="img/down.gif" /></button>
+        <span id="titulo">MEN&Uacute;</span>
+    </div>
+    <!-- Panel con texto2 -->
+    <div class="draggable">
+        <hr />
+        <div id="mydiv3" class = "mydiv3">
+            <table>
+                <fieldset name="datos"><legend>This is my form caption</legend>
+                <form>
+                    <tr>
+                        <td><label for="dni">DNI:</label></td>
+                        <td><input id="dni" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="nombre">Nombre:</label></td>
+                        <td><input id="nombre" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="apellidos">Apellidos:</label></td>
+                        <td><input id="apellidos" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="direccion">Dirección:</label></td>
+                        <td><input id="direccion" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="cp">CP:</label></td>
+                        <td><input id="cp" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="edad">Edad:</label></td>
+                        <td><input id="edad" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td><button id="insertar" class="formbutton" type="button">Insertar</button></td>
+                        <td><button class="formbutton" type="reset">Limpiar</button></td>
+                    </tr>
+                    
+                </form>
+                </fieldset>
+            </table>
+        </div>
+        <button id="hide3"><img src="img/up.gif" /></button>
+        <button id="show3"><img src="img/down.gif" /></button>
+        <span id="titulo">FORMULARIO</span>
+    </div>
+    
+       
+
+    <script type="text/javascript">
+    
+    // Muestra el texto
+    $("#hide").click(function () {
+        $(".mydiv").slideUp( 1000 );
+    });
+    // Oculta el texto
+    $("#show").click(function () {
+        $(".mydiv").slideDown( 1000 );
+    });
+    // Muestra la lista
+    $("#hide2").click(function () {
+        $(".mydiv2").slideUp( 1000 );
+    });
+    // Oculta la lista
+    $("#show2").click(function () {
+        $(".mydiv2").slideDown( 1000 );
+    });
+    // Muestra la lista
+    $("#hide3").click(function () {
+        $(".mydiv3").slideUp( 1000 );
+    });
+    // Oculta la lista
+    $("#show3").click(function () {
+        $(".mydiv3").slideDown( 1000 );
+    });
+
+    $("#dni").on("focus",function(){
+        $("#dni").css({"background-color":"#FFFBAF"});
+    });
+    $("#dni").on("blur",function(){
+        $("#dni").css({"background-color":"#FFF"});
+    });
+
+    $( function() {
+        $(".draggable").draggable();
+        $(".draggable").index=0;
+    } );
+
+    </script>
+</body>
+</html>
