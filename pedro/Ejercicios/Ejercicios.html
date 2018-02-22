@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ejercicios</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>THE SHAPE OF WATER, by James Jean</h1>
+<img src=img01.jpg id=water class=jamesjean width="20%" height="20%">
+<p id="description">The Shape of Water is a signed and numbered time-limited edition of giclée
+  prints. Working directly with Guillermo del Toro, James created this image as
+  the official one sheet for the award winning film. The edition will be made
+  available for 24 hours starting at 8:00 AM PST on Tuesday, January 30th and
+  ending at 7:59 AM PST on Wednesday, January 31st. The edition will be limited
+  by the number of prints sold during those 24 hours and never reprinted.</p>
+<tr>
+  <td id="comentMsg">Hi user! Put your comment here:</td>
+  <td> <input id=userComent type="text"></td>
+</tr>
+<ul id="list">
+
+</ul>
+<button id="addElementList" type="button">Add element list</button>
+</body>
+
+<script src=""></script>
+
+<!-- 1. Haga que al terminar la carga de la página (onload), aparezca un alert
+mostrando "página cargada".-->
+<script type="text/javascript">
+  $(document).ready(function(){
+    alert ("página cargada");
+  });
+</script>
+
+
+<!-- 2. Coloque una imagen. Haga que al mover la rueda del ratón, el tamaño de
+la imagen se vaya agrandando, y que al pulsar el botón derecho la imaghen se
+haga más chica. Investigue como hacer lo mismo pero solo con el ratón). -->
+
+<script type="text/javascript">
+  $("#water").on('wheel', function(event){
+          // deltaY guarda el valor de scroll vertical. También podemos usar deltaX (valor horizontal) y deltaZ (valor profundidad)
+    event.preventDefault();
+    if(event.originalEvent.deltaY < 0){
+        // Rueda arriba
+      var ancho=$("#water").width();
+        // Aumentamos el valor del ancho en 5px
+      ancho=ancho+5;
+        $(document).ready(function(){
+            $("#water").css({ "width":ancho});
+        });
+    } else {
+        // Rueda abajo
+        var ancho=$("#water").width();
+        // Disminuimos el valor del ancho en 5px
+        ancho=ancho-5;
+        $(document).ready(function(){
+            $("#water").css({ "width":ancho});
+        });
+      }
+  });
+
+    </script>
+
+<!-- 3. Cree un párrafo con un texto, haga que cuando se haga click sobre el
+mismo, el tamaño de la fuente sea de 20 pt.-->
+
+<script type="text/javascript">
+  $('#description').on("click",function(){
+    $(this).css({
+      "font-size" : "20pt"
+    })
+  })
+</script>
+
+<!-- 4. Cree un encabezado h1 con un texto, haga que cuando se pase el ratón por
+encima, el tamaño de la fuente sea de 30 pt y rojo. Haga también que cuando se
+retire el ratón, el tamaño de la fuente sea de 12 pt y de color negro.-->
+
+<script type="text/javascript">
+  $("h1").mouseover(function(){
+    $("h1").css({"font-size":"30pt","color":"red"
+    })
+  })
+  $("h1").mouseleave(function(){
+    $("h1").css({"font-size":"12pt","color":"black"
+    })
+  })
+</script>
+
+<!-- 5. Coloque un campo input, haga que cuando cambie aparezca un texto que
+indique que "el campo ha cambiado". Note que sólo se se activa el mensaje
+cuando cambiamos el contenido y perdemos el foco. Realizar lo mismo pero ahora
+con el evento onkeypress.-->
+
+<script type="text/javascript">
+  $("#userComent").on("keypress",function(){
+    $(this).val("El campo ha cambiado")
+  })
+</script>
+
+<!-- 6. Haga una lista vacía que ponga un botón con el texto añadir. Haga que
+al hacer click sobre ese botón se añada un elemento. Haga también que al hacer
+doble click desaparezca un elemento de esa lista (por ejemplo el último).-->
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#addElementList").click(function(){
+      $("#list").append("<li>Element.</li>");
+    });
+});
+  $("#addElementList").on("contextmenu", function(event){
+    $("#list li:last").remove();
+    event.preventDefault();
+  })
+
+</script>
+
+</html>
