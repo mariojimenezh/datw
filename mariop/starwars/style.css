@@ -1,0 +1,129 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+body{
+  font-family: "Droid Sans", arial, verdana, sans-serif;
+	font-weight: 700;
+	background: #000;
+
+	overflow: hidden;
+  animation: fondo 190s linear 9s 1 normal none;
+}
+@keyframes fondo {
+  1%{
+    background: #000 url("space.png") no-repeat;
+  }
+  99%{
+    background-image: #000 url("space.png") no-repeat;
+  }
+}
+/*#musica{
+  visibility: hidden;
+}*/
+#previa{
+  position: absolute;
+  top: 45%;
+  left: 25%;
+  color: #4ee;
+  font-size: 24pt;
+  filter: opacity(0);
+  animation: previo 8s linear 1s 1 normal none;
+}
+h1{
+  left: 50%;
+}
+#crawl{
+  position: absolute;
+	width: 18em;
+	height: 50em;
+	bottom: 0;
+	left: 50%;
+  color: #ff6;
+	margin-left: -9em;
+	font-size: 350%;
+	font-weight: bold;
+	text-align: justify;
+	overflow: hidden;
+	transform-origin: 50% 100%;
+	transform: perspective(300px) rotateX(25deg);
+}
+
+#crawl::after{
+  position: absolute;
+	content: ' ';
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 60%;
+	background-image: linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+	pointer-events: none;
+}
+h1 sub{
+  display: block;
+  font-size: 0.3em;
+  letter-spacing: 0;
+  color: #ff6;
+  top: 50%
+}
+
+#crawl p {
+  text-align: justify;
+}
+#crawl p.center{
+  text-align: center;
+}
+
+h1{
+  position: absolute;
+	width: 2.6em;
+	left: 50%;
+	top: 15%;
+	font-size: 10em;
+	text-align: center;
+	margin-left: -1.3em;
+	line-height: 0.8em;
+	letter-spacing: -0.05em;
+	color: #000;
+	text-shadow: -2px -2px 0 #ff6, 2px -2px 0 #ff6, -2px 2px 0 #ff6, 2px 2px 0 #ff6;
+	opacity: 0;
+	z-index: 1;
+	animation: logo 5s ease-out 10s;
+}
+#contenido
+{
+	position: absolute;
+	top: 100%;
+	animation: movimiento 160s linear 12s infinite;
+}
+#crawl p.gafas{
+  text-align: justify;
+  filter: opacity(0);
+  animation: aparecer 160s linear 12s infinite;
+}
+@keyframes aparecer{
+  32%{
+    filter: opacity(0);
+  }
+  35%{
+    filter: opacity(1);
+  }
+  99%{
+    filter: opacity(1);
+  }
+}
+@keyframes previo {
+  0%  {filter: opacity(0.33);}
+  10% {filter: opacity(0.66);}
+  20% {filter: opacity(1);}
+  80%  {filter: opacity(0.66);}
+  90% {filter: opacity(0.33);}
+  100% {filter: opacity(0);}
+}
+@keyframes movimiento {
+	0% { top: 100%; }
+	100% { top: -170%; }
+}
+
+@keyframes logo {
+	0% { transform: scale(1); opacity: 1; }
+	50% { opacity: 1; }
+	100% { transform: scale(0.1); opacity: 0; }
+}
